@@ -1,0 +1,29 @@
+﻿@model TP3.Models.Person
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    @if (ViewBag.Message == "Error")
+    {
+            <h1>Person With ID Doesnt Exist</h1>
+    }
+    else{
+        <h1 class="display-4">People Details</h1>
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-sm-12 ">
+                    <div class="d-flex align-items-center justify-content-center flex-column p-2 ">
+                        <img src="@Model.Image" height="150px" width="200px" />
+                        <span>Person Id : @Model.Id</span>
+                        <span>First Name : @Model.First_Name</span>
+                        <span>Last Name : @Model.Last_Name</span>
+                        <span>Email : @Model.Email</span>
+                        <span>Country : @Model.Country</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

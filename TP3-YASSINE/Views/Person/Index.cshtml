@@ -1,0 +1,40 @@
+﻿@model List<TP3.Models.Person>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">People</h1>
+    <div class="d-flex justify-content-end p-2">
+
+    <input type="button"
+           class="btn btn-primary"
+           value="Search"
+           onclick="@("window.location.href='" + @Url.Action($"search", "Person") + $"'");" />
+    </div>
+
+    <div class="container">
+        <div class="row g-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-3 ">
+                    <div class="d-flex align-items-center justify-content-center flex-column p-2 border border-secondary rounded">
+                    <img src="@item.Image" height="150px" width="200px"/>
+                    <span>Person Id : @item.Id</span>
+                    <span>First Name : @item.First_Name</span>
+                    <span>Last Name : @item.Last_Name</span>
+                    <span>Email : @item.Email</span>
+                    <span>Country : @item.Country</span>
+                        <input type="button"
+                            class="btn btn-primary"
+                           value="See Details"
+                           onclick="@("window.location.href='" + @Url.Action($"Details", "Person") + $"/{@item.Id}'");" />
+                </div>
+
+            </div>
+            }
+        </div>
+    </div>
+
+</div>
